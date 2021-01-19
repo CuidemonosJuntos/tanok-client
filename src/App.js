@@ -13,7 +13,7 @@ import { WebSocketLink } from "apollo-link-ws";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
 const wsLink = new WebSocketLink({
-  uri: "wss://tanok.herokuapp.com/graphql",
+  uri: "wss://http://tanok-server.herokuapp.com/",
   options: {
     reconnect: true
   }
