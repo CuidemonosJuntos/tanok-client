@@ -7,20 +7,19 @@ import reducer from './reducer';
 import Home from './components/Home';
 import MyLearning from './components/MyLearning';
 
-import { ApolloProvider } from "react-apollo";
-import { ApolloClient } from "apollo-client";
-import { WebSocketLink } from "apollo-link-ws";
-import { InMemoryCache } from "apollo-cache-inmemory";
+import {
+  ApolloProvider,
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache
+} from '@apollo/client';
 
-const wsLink = new WebSocketLink({
-  uri: "wss://http://tanok-server.herokuapp.com/",
-  options: {
-    reconnect: true
-  }
+const httpLink = createHttpLink({
+  uri: 'http://tanok-server.herokuapp.com/'
 });
 
 const client = new ApolloClient({
-  link: wsLink,
+  link: httpLink,
   cache: new InMemoryCache()
 });
 
