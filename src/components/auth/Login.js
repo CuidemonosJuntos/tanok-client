@@ -12,7 +12,7 @@ export default function Login() {
     const onSuccess = async googleUser => {
         try {
             const tokenId = googleUser.getAuthResponse().id_token;
-            const client = new GraphQLClient('http://localhost:4000/graphql', {
+            const client = new GraphQLClient('http://tanok-server.herokuapp.com', {
                 headers: { authorization: tokenId }
             });
             const { me } = await client.request(ME_QUERY);
